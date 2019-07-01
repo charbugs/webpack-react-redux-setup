@@ -1,22 +1,14 @@
 import React from 'react';
-import { connect } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { setWelcome } from '../state/actions';
 
-const App = (props) => {
+export function App(props) {
+  const dispatch = useDispatch()
+  const welcome = useSelector(state => state.welcome)
   return (
     <div>
-      <h1>{props.welcome}</h1>
-      <button onClick={() => props.setWelcome('bonjour')}>Click</button>
+      <h1>{welcome}</h1>
+      <button onClick={() => dispatch(setWelcome('bonjour'))}>Click</button>
     </div>
   )
 }
-
-const mapStateToProps = state => ({
-  welcome: state.welcome
-});
-
-const mapDispatchToProps = {
-  setWelcome
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(App);

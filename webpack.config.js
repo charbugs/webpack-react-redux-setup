@@ -12,9 +12,7 @@ module.exports = {
     contentBase: './dist'
   },
   plugins: [
-    new HtmlWebpackPlugin({
-      title: 'Mirador Modular POC'
-    })
+    new HtmlWebpackPlugin()
   ],
   module: {
     rules: [
